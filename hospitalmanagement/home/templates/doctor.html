@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors</title>
+</head>
+<body>
+
+   <!-- hospital_app/templates/doctor.html -->
+<h1>Doctors</h1>
+<table border="5px">
+    <thead>
+        <th>Doctor</th>
+        <th>Speciality</th>
+        <th>Address</th>
+        <th>phone</th>
+        <th>email</th>
+    </thead>
+    <tbody>
+        {% for doctor in doctor %}
+            <tr>
+                <td>{{ doctor.name }}</td>
+                <td>{{ doctor.speciality }}</td>
+                <td>{{ doctor.address }}</td>
+                <td>{{ doctor.phone }}</td>
+                <td>{{ doctor.email }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+  
+</body>
+</html>

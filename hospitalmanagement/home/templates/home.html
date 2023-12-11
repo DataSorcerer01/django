@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+
+    <h1>Welcome to Our Hospital</h1>
+
+    <p>This is the home page of our hospital management app. Explore the following sections:</p>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'doctor' %}">Doctors</a></li>
+        </ul>
+        <div>
+            <a href="{% url 'login' %}"><button>Login</button></a>
+            <a href="{% url 'signup' %}"><button>Signup</button></a>
+        </div>
+    </nav>
+
+    <div class="main">
+        <p>User details</p>
+        <form method="post" action="{% url 'book_consultation' %}">
+            {% csrf_token %}
+            <label for ="name" id="name">Name:</label>
+            <input type="text" required>
+            <label for ="phone" id="phone">Phone:</label>
+            <input type="number" required>
+            <label for ="email" id="email">Email:</label>
+            <input type="email" required>
+            <label for ="preferred day" id="day">Date:</label>
+            <input type="date" required>
+            <button type="btn">Submit</button>
+            <p> we will get back to you!</p>
+
+        </form>
+    </div>
+  
+
+</body>
+</html>

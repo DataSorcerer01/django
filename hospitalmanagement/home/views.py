@@ -26,7 +26,7 @@ def signup(request):
 
 
 def book_consultation(request):
-    if request.method == "POST":
+    if request.method == "GET":
         patient_name = request.POST.get('patient_name')
         appointment_date = request.POST.get('appointment_date')
         doctor_id = request.POST.get('doctor_id')
@@ -46,9 +46,9 @@ def book_consultation(request):
         consultation.save()
 
         # Redirect to the list of doctors after booking consultation
-        doctors = Doctor.objects.all()
-        return render(request, 'doctor.html', {'doctors': doctors, 'message': 'Consultation booked successfully!'})
+        doctor_list=Doctor.objects.all() 
+        return render(request, 'doctor.html', {'doctor': doctor_list, 'message': 'Consultation booked successfully!'})
 
     # If the request method is not POST, render the book_consultation.html template
-    doctors = Doctor.objects.all()  # Query the list of doctors
-    return render(request, 'book_consultation.html', {'doctors': doctors})
+    doctor_list=Doctor.objects.all()  # Query the list of doctors
+    return render(request, 'book_consultation.html', {'doctor': doctor_list})

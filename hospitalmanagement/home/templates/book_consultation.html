@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+
     <title>Book Consultation</title>
 </head>
 <body>
@@ -13,14 +15,15 @@
         <p>{{ message }}</p>
     {% endif %}
     
-    <form method="post" action="{% url 'book_consultation' %}">
+    <form method="post" action="{% url 'book_consultation' %}" class="book_form">
         {% csrf_token %}
         <label for="patient_name">Patient Name:</label>
         <input type="text" id="patient_name" name="patient_name" required><br>
         
         <label for="doctor_id">Select Doctor:</label>
         <select id="doctor_id" name="doctor_id" required>
-            {% for doctor in Doctors %}
+            
+            {% for doctor in doctor %}
                 <option value="{{ doctor.id}}">{{ doctor.name }} - {{ doctor.speciality }}</option>
             {% endfor %}
         </select><br>
